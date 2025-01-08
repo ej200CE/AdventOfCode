@@ -8,10 +8,9 @@ def safe_check(levels):
     all_decreasing = all(earlier > later for earlier, later in zip(levels, levels[1:]))
     diffr_matching = all(1 <= abs(earlier - later) <= 3 for earlier, later in zip(levels, levels[1:]))
 
+
     if (all_increasing or all_decreasing) and diffr_matching:
         return True
-
-
 with open("input.txt") as file:
     for line in file:
         levels = [int(x) for x in line.split()]
